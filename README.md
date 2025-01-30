@@ -36,7 +36,7 @@ This Flask web application processes uploaded `.docx` files, extracts specific d
 ## Usage
 1. Start the Flask application:
    ```sh
-   python app.py
+   python flask_app.py
    ```
 2. Open a web browser and navigate to:
    ```
