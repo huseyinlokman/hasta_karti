@@ -62,7 +62,6 @@ This Flask web application processes uploaded `.docx` files, extracts specific d
 ├── uploads/        # Temporary storage for uploaded files
 ├── outputs/        # Processed document storage
 ├── templates/      # HTML templates for the web interface
-├── static/         # CSS, JS, and other static files
 ├── app.py          # Main Flask application
 ├── requirements.txt # Required Python packages
 └── README.md       # Project documentation
@@ -71,8 +70,6 @@ This Flask web application processes uploaded `.docx` files, extracts specific d
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
 
-## License
-This project is licensed under the MIT License. See `LICENSE` for details.
 
 ## Author
 Developed by huseyinlokman.
