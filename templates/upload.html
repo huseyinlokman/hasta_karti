@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasta Kartı</title>
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #cleanup-button {
+            background-color: #f44336;
+        }
+
+        #cleanup-button:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload DOCX File</h1>
+
+    <form id="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Select a DOCX file:</label>
+        <input type="file" id="file" name="file" accept=".docx" required>
+
+        <label for="date">Select Date (default is today):</label>
+        <input type="date" id="date" name="date" value="{{ current_date }}" required>
+
+        <div class="button-container">
+            <button type="submit">Upload</button>
+        </div>
+        <p id="warning-message">Press upload only once, wait till download !!! (~ 1 min)</p>
+        <p id="cleanup-advice" class="message">If you are experiencing errors, please clean up storage first.</p>
+        <div class="button-container">
+            <button type="button" id="cleanup-button">Cleanup Storage</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('cleanup-button').onclick = function() {
+            fetch('/cleanup', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Storage cleaned up successfully.');
+                    } else {
+                        alert('Failed to clean up storage.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred during cleanup.');
+                });
+        };
+    </script>
+</body>
+</html>

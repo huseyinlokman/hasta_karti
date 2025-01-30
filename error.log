@@ -1,0 +1,6 @@
+INFO:root:File saved to uploads/22 EKİM ANA LİSTE.docx
+ERROR:root:Error creating zip file: [Errno 122] Disk quota exceeded
+ERROR:root:Error processing file: [Errno 122] Disk quota exceeded
+INFO:root:File saved to uploads/22 EKİM ANA LİSTE.docx
+INFO:root:Uploaded file uploads/22 EKİM ANA LİSTE.docx deleted.
+ERROR:root:Error during cleanup: [Errno 39] Directory not empty: 'outputs/21-10-2024'
